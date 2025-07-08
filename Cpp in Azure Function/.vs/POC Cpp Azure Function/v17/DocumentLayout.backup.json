@@ -1,0 +1,82 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Source\\lohn-web-pocs\\Cpp in Azure Function\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{46D31835-83F8-40A5-B35A-661F1E128388}|POC Cpp Azure Function\\POC Cpp Azure Function.csproj|c:\\source\\lohn-web-pocs\\cpp in azure function\\poc cpp azure function\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{46D31835-83F8-40A5-B35A-661F1E128388}|POC Cpp Azure Function\\POC Cpp Azure Function.csproj|solutionrelative:poc cpp azure function\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46D31835-83F8-40A5-B35A-661F1E128388}|POC Cpp Azure Function\\POC Cpp Azure Function.csproj|c:\\source\\lohn-web-pocs\\cpp in azure function\\poc cpp azure function\\dllfunctioncalculate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46D31835-83F8-40A5-B35A-661F1E128388}|POC Cpp Azure Function\\POC Cpp Azure Function.csproj|solutionrelative:poc cpp azure function\\dllfunctioncalculate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{605322a2-17ae-43f4-b60f-766556e46c87}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{5a4e9529-b6a0-46b5-be4f-0f0b239bc0eb}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "local.settings.json",
+              "DocumentMoniker": "C:\\Source\\lohn-web-pocs\\Cpp in Azure Function\\POC Cpp Azure Function\\local.settings.json",
+              "RelativeDocumentMoniker": "POC Cpp Azure Function\\local.settings.json",
+              "ToolTip": "C:\\Source\\lohn-web-pocs\\Cpp in Azure Function\\POC Cpp Azure Function\\local.settings.json",
+              "RelativeToolTip": "POC Cpp Azure Function\\local.settings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-07T14:28:00.705Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DllFunctionCalculate.cs",
+              "DocumentMoniker": "C:\\Source\\lohn-web-pocs\\Cpp in Azure Function\\POC Cpp Azure Function\\DllFunctionCalculate.cs",
+              "RelativeDocumentMoniker": "POC Cpp Azure Function\\DllFunctionCalculate.cs",
+              "ToolTip": "C:\\Source\\lohn-web-pocs\\Cpp in Azure Function\\POC Cpp Azure Function\\DllFunctionCalculate.cs",
+              "RelativeToolTip": "POC Cpp Azure Function\\DllFunctionCalculate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T14:27:00.659Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
