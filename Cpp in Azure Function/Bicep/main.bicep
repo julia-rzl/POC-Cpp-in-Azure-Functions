@@ -1,5 +1,11 @@
 param functionAppName string = 'LohnAzureFunction'
 param location string = 'westeurope'
+param githubRepoUrl string = 'https://github.com/julia-rzl/POC-Cpp-in-Azure-Functions'
+param githubBranch string = 'poc/cpp-in-azure-functions'
+
+// Replace with your actual GitHub org/user and repo name
+param githubRepoUrl string = 'https://github.com/<your-org-or-user>/<your-repo>'
+param githubBranch string = 'dev' // or 'main', 'feature/xyz', etc.
 
 var storageAccountName = toLower(replace('lohnstorageaccount', '-', ''))
 var appInsightsName = 'lohnapplicationinsights'
@@ -51,7 +57,7 @@ resource functionApp 'Microsoft.Web/sites@2022-09-01' = {
     serverFarmId: hostingPlan.id
     httpsOnly: true
     siteConfig: {
-      linuxFxVersion: 'DOTNET-ISOLATED|9.0' 
+      linuxFxVersion: 'DOTNET-ISOLATED|9.0'
       use32BitWorkerProcess: false
       appSettings: [
         {
@@ -77,4 +83,16 @@ resource functionApp 'Microsoft.Web/sites@2022-09-01' = {
       ]
     }
   }
+}
+
+resource sourceControl 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
+  name: '${functionApp.name}/web'
+  properties: {
+    repoUrl: githubRepoUrl
+    branch: githubBranch
+    isManualIntegration: true
+  }
+  dependsOn: [
+    functionApp
+  ]
 }
