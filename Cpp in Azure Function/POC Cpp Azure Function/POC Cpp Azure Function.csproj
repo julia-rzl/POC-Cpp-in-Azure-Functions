@@ -26,8 +26,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </None>
-    <None Update="PocDll.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	<None Update="PocDll.dll">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		<CopyToPublishDirectory>Always</CopyToPublishDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
