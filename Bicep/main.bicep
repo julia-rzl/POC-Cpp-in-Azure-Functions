@@ -1,17 +1,23 @@
+@description('Name of the Azure Function App')
 param functionAppName string = 'LohnAzureFunction'
+
+@description('Deployment region')
 param location string = 'westeurope'
-param githubRepoUrl string = 'https://github.com/julia-rzl/POC-Cpp-in-Azure-Functions'
-param githubBranch string = 'poc/cpp-in-azure-functions'
 
-// Replace with your actual GitHub org/user and repo name
-param githubRepoUrl string = 'https://github.com/<your-org-or-user>/<your-repo>'
-param githubBranch string = 'dev' // or 'main', 'feature/xyz', etc.
+@description('Unique name for the storage account (auto-generated)')
+var storageAccountName = uniqueString(resourceGroup().id, 'lohnstorageaccount')
 
-var storageAccountName = toLower(replace('lohnstorageaccount', '-', ''))
+@description('Name of the Application Insights instance')
 var appInsightsName = 'lohnapplicationinsights'
 
+@description('Name of the App Service Plan')
+var hostingPlanName = '${functionAppName}-plan'
+
+//
+// STORAGE ACCOUNT
+//
 resource storage 'Microsoft.Storage/storageAccounts@2022-09-01' = {
-  name: uniqueString(resourceGroup().id, storageAccountName)
+  name: storageAccountName
   location: location
   sku: {
     name: 'Standard_LRS'
@@ -24,8 +30,11 @@ resource storage 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   }
 }
 
+//
+// APP SERVICE PLAN 
+//
 resource hostingPlan 'Microsoft.Web/serverfarms@2022-09-01' = {
-  name: '${functionAppName}-plan'
+  name: hostingPlanName
   location: location
   sku: {
     name: 'Y1'
@@ -33,10 +42,13 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-09-01' = {
   }
   kind: 'functionapp'
   properties: {
-    reserved: true // Linux
+    reserved: false // Windows
   }
 }
 
+//
+// APPLICATION INSIGHTS
+//
 resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
   name: appInsightsName
   location: location
@@ -46,10 +58,13 @@ resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
   }
 }
 
+//
+// FUNCTION APP (Windows, GitHub Actions Deployment)
+//
 resource functionApp 'Microsoft.Web/sites@2022-09-01' = {
   name: functionAppName
   location: location
-  kind: 'functionapp,linux'
+  kind: 'functionapp'
   identity: {
     type: 'SystemAssigned'
   }
@@ -57,8 +72,8 @@ resource functionApp 'Microsoft.Web/sites@2022-09-01' = {
     serverFarmId: hostingPlan.id
     httpsOnly: true
     siteConfig: {
-      linuxFxVersion: 'DOTNET-ISOLATED|9.0'
       use32BitWorkerProcess: false
+      netFrameworkVersion: 'v9.0' 
       appSettings: [
         {
           name: 'AzureWebJobsStorage'
@@ -80,19 +95,25 @@ resource functionApp 'Microsoft.Web/sites@2022-09-01' = {
           name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
           value: appInsights.properties.ConnectionString
         }
+        {
+          name: 'FUNCTIONS_EXTENSION_VERSION'
+          value: '~4'
+        }
       ]
     }
   }
 }
 
+//
+// GITHUB ACTION DEPLOYMENT CONFIGURATION
+//
 resource sourceControl 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
-  name: '${functionApp.name}/web'
+  name: 'web'
+  parent: functionApp
   properties: {
-    repoUrl: githubRepoUrl
-    branch: githubBranch
-    isManualIntegration: true
+    repoUrl: 'https://github.com/julia-rzl/POC-Cpp-in-Azure-Functions'
+    branch: 'poc/cpp-in-azure-functions'
+    isManualIntegration: false
+    isGitHubAction: true
   }
-  dependsOn: [
-    functionApp
-  ]
 }
