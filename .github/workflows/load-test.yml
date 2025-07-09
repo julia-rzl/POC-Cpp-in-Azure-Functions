@@ -1,6 +1,9 @@
 name: Azure Load Test
 
 on:
+  push:
+    branches:
+      - poc/benchmark-concept-azure-function
   workflow_dispatch:  # or use `push`, `schedule`, etc.
 
 jobs:
