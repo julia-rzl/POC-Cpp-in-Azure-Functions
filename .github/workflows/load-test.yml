@@ -20,7 +20,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Run Azure Load Test
-        uses: azure/load-testing@v1
+        uses: azure/load-testing@v1.1.27
         with:
           loadTestConfigFile: .azureloadtest/loadtest-config.yaml
           resourceGroup: POC
