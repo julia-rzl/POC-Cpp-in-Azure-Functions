@@ -1,10 +1,15 @@
-testId: my-azure-func-loadtest
+testId: azure-function-load-test
 displayName: Load test for Azure Function
-description: Simulating 100 users for 1 minute
+description: Simple GET load test
 testPlan: ./test-plan.jmx
 engineInstances: 1
+configuration:
+  splitAllCSVs: false
+  env:
+    - name: TARGET_URL
+      value: https://lohnazurefunction.azurewebsites.net/api/DllFunctionCalculate
 passFailCriteria:
-  - avg(response_time_ms) < 1000
-env:
-  - name: TARGET_URL
-    value: https://lohnazurefunction.azurewebsites.net/api/DllFunctionCalculate
+  - metric: response_time_ms
+    aggregate: avg
+    condition: '<'
+    value: 1000
