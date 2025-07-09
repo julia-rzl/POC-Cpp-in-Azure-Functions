@@ -5,7 +5,7 @@ param functionAppName string = 'LohnAzureFunction'
 param location string = 'westeurope'
 
 @description('Unique name for the storage account (auto-generated)')
-var storageAccountName = uniqueString(resourceGroup().id, 'lohnstorageaccount')
+var storageAccountName = 'lohnstorageaccount'
 
 @description('Name of the Application Insights instance')
 var appInsightsName = 'lohnapplicationinsights'
