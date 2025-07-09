@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'Cpp in Azure Function' 
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'src' 
   DOTNET_VERSION: '9.0.x'
 
 jobs:
