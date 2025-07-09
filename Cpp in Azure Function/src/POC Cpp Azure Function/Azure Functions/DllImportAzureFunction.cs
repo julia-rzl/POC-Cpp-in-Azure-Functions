@@ -10,7 +10,7 @@ namespace POC_Cpp_Azure_Function.Azure_Functions
     {
         private readonly ILogger<DllImportAzureFunction> _logger;
 
-        private DllImportAzureFunction(ILogger<DllImportAzureFunction> logger)
+        public DllImportAzureFunction(ILogger<DllImportAzureFunction> logger)
         {
             _logger = logger;
         }
@@ -20,7 +20,8 @@ namespace POC_Cpp_Azure_Function.Azure_Functions
         {
             _logger.LogInformation("Calling native C++ function...");
 
-            int result = CalculateByDllImport.Add(3, 5);
+            IntPtr calc = CalculateByDllImport.CreateCalculatorWithValues(3.0, 5.7);
+            double result = CalculateByDllImport.Calculator_Addiere(calc);
 
             var response = req.CreateResponse(HttpStatusCode.OK);
             await response.WriteStringAsync($"Result from C++ DllImport Azure Function: {result}");

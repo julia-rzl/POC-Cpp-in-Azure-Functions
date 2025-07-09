@@ -11,8 +11,35 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="dll\Ijwhost.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dll\RZL.Common.Domain.Cpp64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dll\RZL.Framework.Protocol.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dll\RZL.Framework.Utilities.Cpp.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dll\RZL.Lohn.Domain.Cpp64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dll\RZL.Lohn.MasterFile.x64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="dll\RZLSysBase.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="local-packages\RZL.Lohn.Domain.CLI.0.0.4.nupkg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="C:\Users\Julia.Schober\.nuget\packages\rzl.lohn.domain.cli\0.0.4\build\netstandard2.0\..\..\Debug-runtimes\win-x64\native\RZL.Common.Domain.Cpp64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
