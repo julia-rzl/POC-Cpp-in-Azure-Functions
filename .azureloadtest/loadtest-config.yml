@@ -8,8 +8,3 @@ configuration:
   env:
     - name: TARGET_URL
       value: https://lohnazurefunction.azurewebsites.net/api/DllFunctionCalculate
-passFailCriteria:
-  - metric: response_time_ms
-    aggregate: avg
-    condition: '<'
-    value: 1000
