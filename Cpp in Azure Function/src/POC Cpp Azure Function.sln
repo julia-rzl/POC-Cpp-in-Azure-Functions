@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36221.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POC Cpp Azure Function", "POC Cpp Azure Function\POC Cpp Azure Function.csproj", "{46D31835-83F8-40A5-B35A-661F1E128388}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocCalculators", "PocCalculators\PocCalculators.csproj", "{5B67966C-7498-4425-93B8-F706A39252E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{46D31835-83F8-40A5-B35A-661F1E128388}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46D31835-83F8-40A5-B35A-661F1E128388}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46D31835-83F8-40A5-B35A-661F1E128388}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B67966C-7498-4425-93B8-F706A39252E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B67966C-7498-4425-93B8-F706A39252E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B67966C-7498-4425-93B8-F706A39252E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B67966C-7498-4425-93B8-F706A39252E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
