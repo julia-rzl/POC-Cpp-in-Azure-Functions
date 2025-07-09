@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="RZL.Lohn.Domain.CLI" Version="0.0.2" />
+    <PackageReference Include="RZL.Lohn.Domain.CLI" Version="0.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="local-packages\RZL.Lohn.Domain.CLI.0.0.4.nupkg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
