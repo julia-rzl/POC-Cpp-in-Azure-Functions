@@ -1,0 +1,52 @@
+name: Build and deploy .NET project to Azure Function App - LohnAzureFunction
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  DOTNET_VERSION: '9.0.x'
+  SRC_ROOT: 'Cpp in Azure Function/src'
+  CALCULATORS_PROJECT_PATH: 'Cpp in Azure Function/src/PocCalculators'
+  FUNCTION_PROJECT_PATH: 'Cpp in Azure Function/src/POC Cpp Azure Function'  
+  OUTPUT_DIR: 'output'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v4
+
+      - name: 'Setup .NET'
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: 'Restore class library with local NuGet'
+        run: dotnet restore PocCalculators.csproj --configfile NuGet.config
+        working-directory: ${{ env.CALCULATORS_PROJECT_PATH }}
+
+      - name: 'Restore entire solution (includes Azure Function)'
+        run: dotnet restore
+        working-directory: ${{ env.SRC_ROOT }}
+
+      - name: 'Build Solution'
+        run: dotnet build --configuration Release --output ${{ env.OUTPUT_DIR }}
+        working-directory: ${{ env.FUNCTION_PROJECT_PATH }}
+
+      - name: 'Login to Azure'
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: 'Deploy Azure Function'
+        uses: Azure/functions-action@v1
+        id: fa
+        with:
+          app-name: 'LohnAzureFunction'
+          slot-name: 'Production'
+          package: '${{ env.FUNCTION_PROJECT_PATH }}/${{ env.OUTPUT_DIR }}'

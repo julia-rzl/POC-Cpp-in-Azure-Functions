@@ -1,9 +1,0 @@
-{
-  "profiles": {
-    "POC_Cpp_Azure_Function": {
-      "commandName": "Project",
-      "commandLineArgs": "--port 7895",
-      "launchBrowser": false
-    }
-  }
-}
