@@ -3,14 +3,14 @@ name: Build and deploy .NET project to Azure Function App - LohnAzureFunction
 on:
   push:
     branches:
-      - poc/cpp-by-cli
+      - main
   workflow_dispatch:
 
 env:
   DOTNET_VERSION: '9.0.x'
   SRC_ROOT: 'Cpp in Azure Function/src'
   CALCULATORS_PROJECT_PATH: 'Cpp in Azure Function/src/PocCalculators'
-  FUNCTION_PROJECT_PATH: 'Cpp in Azure Function/src/POC Cpp Azure Function'  # Replace with your real path
+  FUNCTION_PROJECT_PATH: 'Cpp in Azure Function/src/POC Cpp Azure Function'  
   OUTPUT_DIR: 'output'
 
 jobs:
