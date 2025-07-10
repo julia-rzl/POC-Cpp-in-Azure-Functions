@@ -36,10 +36,4 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="C:\Users\Julia.Schober\.nuget\packages\rzl.lohn.domain.cli\0.0.4\build\netstandard2.0\..\..\Debug-runtimes\win-x64\native\RZL.Common.Domain.Cpp64.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 </Project>

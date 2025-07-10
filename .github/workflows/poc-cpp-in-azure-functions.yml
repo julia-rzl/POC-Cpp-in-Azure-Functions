@@ -3,7 +3,7 @@ name: Build and deploy .NET project to Azure Function App - LohnAzureFunction
 on:
   push:
     branches:
-      - poc/cpp-by-cli
+      - main
   workflow_dispatch:
 
 env:
